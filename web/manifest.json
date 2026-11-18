@@ -1,6 +1,6 @@
 {
-    "name": "SamKaha POS",
-    "short_name": "SamKaha",
+    "name": "SamKaha - Basic",
+    "short_name": "SamKaha - Basic",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

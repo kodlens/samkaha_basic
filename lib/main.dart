@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         ),
       home: Login(),
       debugShowCheckedModeBanner: false,
-      title: 'SamKaha',
+      title: 'SamKaha - Basic',
     );
   }
 }

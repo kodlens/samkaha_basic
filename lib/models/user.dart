@@ -93,6 +93,21 @@ class User {
     );
   }
 
+  Future<bool> isUsernameTaken(String username, {int? excludeId}) async {
+    final db = await DBHelper.initDb();
+    final result = await db.query(
+      table,
+      where: excludeId != null && excludeId > 0
+          ? 'LOWER(username) = ? AND id != ?'
+          : 'LOWER(username) = ?',
+      whereArgs: excludeId != null && excludeId > 0
+          ? [username.trim().toLowerCase(), excludeId]
+          : [username.trim().toLowerCase()],
+      limit: 1,
+    );
+    return result.isNotEmpty;
+  }
+
   Future<int> updatePassword({required int id, required String newPassword}) async {
     final db = await DBHelper.initDb();
     return await db.update(

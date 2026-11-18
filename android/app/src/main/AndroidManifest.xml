@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:label="SamKaha"
+        android:label="SamKaha - Basic"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
       

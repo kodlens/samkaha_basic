@@ -111,6 +111,7 @@ class AppLimits {
               ),
               onPressed: () {
                 // Do nothing
+                Navigator.pop(context);
               },
               icon: const Icon(Icons.shop_outlined, size: 18),
               label: const Text('Get Pro on Play Store'),

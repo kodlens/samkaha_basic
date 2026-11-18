@@ -106,7 +106,7 @@ class _LoginState extends State<Login> {
                         ),
                         const SizedBox(height: 18),
                         Text(
-                          'SamKaha',
+                          'SamKaha - Basic',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: isSmallScreen ? 28 : 32,

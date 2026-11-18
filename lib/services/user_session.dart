@@ -21,6 +21,11 @@ class UserSession {
     return null;
   }
 
+  Future<void> saveUserSession(Map<String, dynamic> user) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user', json.encode(user));
+  }
+
   Future<void> clearUserSession() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('user');

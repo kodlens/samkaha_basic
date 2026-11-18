@@ -36,9 +36,7 @@ class _UserPageState extends State<UserPage> {
       },
       child: Container(
         color: ThemeHelper.backgroundColor(),
-        child: const SafeArea(
-          child: ListUser(),
-        ),
+        child: const ListUser(),
       ),
     );
   }
