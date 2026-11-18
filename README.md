@@ -1,6 +1,6 @@
 # sales_management
 
-Sales management.
+SamKaha Basic.
 
 ## Getting Started
 
