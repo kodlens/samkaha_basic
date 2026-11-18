@@ -1,0 +1,23 @@
+group 'com.tablemi.flutter_bluetooth_basic'
+version '1.0'
+
+apply plugin: 'com.android.library'
+
+android {
+    namespace "com.tablemi.flutter_bluetooth_basic"
+    // Keep in sync with the app's compileSdk (set by Flutter).
+    compileSdkVersion 34
+
+    defaultConfig {
+        minSdkVersion 21
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation files('libs/gprintersdkv2.jar')
+}
