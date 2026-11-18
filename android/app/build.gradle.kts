@@ -3,16 +3,19 @@ import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
-    //id("kotlin-android")
+    id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+require(keystorePropertiesFile.exists()) {
+    "key.properties file not found. Create it inside the android folder."
 }
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
 
 android {
     namespace = "com.samkaha.pos.basic"
@@ -25,19 +28,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-//    kotlinOptions {
-//        jvmTarget = JavaVersion.VERSION_17.toString()
-//    }
-
-//    compilerOptions {
-//        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-//        // Use the version matching your project (e.g., JVM_1_8, JVM_11, JVM_17)
-//    }
-
-    kotlin {
-        compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-        }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {

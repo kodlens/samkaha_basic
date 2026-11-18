@@ -56,7 +56,7 @@ class PaymentMethodSeed {
     }
 
     // Seed a sample GCash payment transaction if no transactions exist yet
-    await seedSampleGcashPayment();
+    //await seedSampleGcashPayment();
   }
 
   /// Seeds a sample GCash transaction so the user can immediately observe

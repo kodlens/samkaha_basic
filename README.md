@@ -23,9 +23,14 @@ SamKaha Basic.
 
 ## Create Properties
 
-Add new file under android/app and name it key.properties, add this values
+Add new file under android/key.properties and name it key.properties, add this values
 
     storePassword=<your-new-password>
     keyPassword=<your-new-password>
     keyAlias=upload
     storeFile=C:/Users/<YourWindowsUsername>/upload-keystore.jks
+
+## Stop and Clean 
+
+    cd D:\Flutter\samkaha_basic\android
+    .\gradlew --stop
