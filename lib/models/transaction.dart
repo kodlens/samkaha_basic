@@ -139,7 +139,9 @@ class Transaction {
         COALESCE(SUM(total), 0) AS total_sales,
         COALESCE(SUM(quantity), 0) AS total_items,
         COALESCE(SUM(CASE WHEN LOWER(payment_method) = 'cash' OR payment_method IS NULL THEN total ELSE 0 END), 0) AS cash_sales,
-        COALESCE(SUM(CASE WHEN LOWER(payment_method) != 'cash' AND payment_method IS NOT NULL THEN total ELSE 0 END), 0) AS epayment_sales
+        COALESCE(SUM(CASE WHEN LOWER(payment_method) != 'cash' AND payment_method IS NOT NULL THEN total ELSE 0 END), 0) AS epayment_sales,
+        MIN(timestamp) AS first_tx,
+        MAX(timestamp) AS last_tx
       FROM $table
       $whereClause
     ''', whereArgs);
@@ -261,7 +263,9 @@ class Transaction {
         COALESCE(SUM(payment), 0) AS total_payment,
         COALESCE(SUM(quantity), 0) AS total_qty,
         COALESCE(SUM(CASE WHEN LOWER(payment_method) = 'cash' OR payment_method IS NULL THEN total ELSE 0 END), 0) AS cash_sales,
-        COALESCE(SUM(CASE WHEN LOWER(payment_method) != 'cash' AND payment_method IS NOT NULL THEN total ELSE 0 END), 0) AS epayment_sales
+        COALESCE(SUM(CASE WHEN LOWER(payment_method) != 'cash' AND payment_method IS NOT NULL THEN total ELSE 0 END), 0) AS epayment_sales,
+        MIN(timestamp) AS first_tx,
+        MAX(timestamp) AS last_tx
       FROM $table
       WHERE timestamp BETWEEN ? AND ?
       ''',
@@ -308,6 +312,8 @@ class Transaction {
       'tx_count': txCount,
       'avg_ticket': avgTicket,
       'methods': methodBreakdown,
+      'first_tx': row['first_tx']?.toString(),
+      'last_tx': row['last_tx']?.toString(),
     };
   }
 }

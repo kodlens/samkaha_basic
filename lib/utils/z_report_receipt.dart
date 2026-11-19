@@ -21,7 +21,7 @@ class ZReportReceipt {
     required this.avgTicket,
     this.from,
     this.to,
-    this.storeName = 'SAMPLE POS',
+    this.storeName = 'SamKaha - Basic',
     this.closedBy,
   });
 
